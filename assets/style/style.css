@@ -1,0 +1,61 @@
+/* BASIC STYLES HERE */
+
+
+
+
+textarea{
+  padding: 2em;
+}
+
+.new-note, .all-notes{
+  border: none;
+  background: none;
+}
+
+.logo{
+  color: white;
+  font-size: 1.25em;
+}
+
+.delete-note-btn{
+  background-color: rgb(253, 100, 100);
+  color: #ffffff;
+  border-radius: 50%;
+  border: none;
+  height: 3em;
+  width: 3em;
+  transform: translateX(-25px);
+}
+
+.delete-icon{
+  font-size: 2em;
+  padding: 0;
+}
+
+.book-icon{
+  color: rgba(255, 255, 255, 0.729);
+}
+
+.offcanvas{
+  background-color: rgb(222, 222, 222);
+}
+
+.form-control{
+  background-color: white;
+}
+
+.details{
+  line-height: 10%;
+  font-size: smaller;
+}
+
+.all-notes{
+  padding: 3em;
+}
+
+#active-note{
+  border: 3px solid grey;
+  background-color: #1b283e;
+  border-radius: 1%;
+}
+

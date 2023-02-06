@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" href="https://bcw.blob.core.windows.net/public/img/9977764104160066">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.1.96/css/materialdesignicons.min.css"
+    integrity="sha512-NaaXI5f4rdmlThv3ZAVS44U9yNWJaUYWzPhvlg5SC7nMRvQYV9suauRK3gVbxh7qjE33ApTPD+hkOW78VSHyeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="assets/style/main.css">
+  <link rel="stylesheet" href="assets/style/style.css">
+  <script src="https://kit.fontawesome.com/c413f7e4c3.js" crossorigin="anonymous"></script>
+  <title>jot</title>
+</head>
+
+<style>
+  body.debug .container,
+  body.debug .container-fluid {
+    outline: 2px double blue;
+    outline-offset: -2px;
+  }
+
+  body.debug .row {
+    outline: 2px dashed red;
+    outline-offset: -2px;
+  }
+
+  body.debug [class*="col-"] {
+    outline: 2px dotted forestgreen;
+    outline-offset: -3px;
+  }
+</style>
+
+<body class="">
+  <header class="bg-dark">
+    <div class="row">
+      <div class="col-md-10 d-flex align-items-center">
+        <button class="new-note" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+          aria-controls="offcanvasExample">
+          <div class="py-1 ps-4" onclick="app.notesController.newNoteForm()">
+            <span class="display-6">
+              <span class="mdi mdi-alpha-j-circle-outline logo"></span>
+              <span class="mdi mdi-alpha-o-circle-outline logo"></span>
+              <span class="mdi mdi-alpha-t-circle-outline logo"></span>
+            </span>
+            <span class="mdi mdi-circle-outline logo"></span>
+          </div>
+        </button>
+      </div>
+      <div class="col-md-2 d-flex justify-content-end align-items-center pe-5">
+        <button class="all-notes" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+          aria-controls="offcanvasRight">
+          <i class="fa-solid fa-book book-icon display-6"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+  <main class="bg-dark text-light d-flex grow-1">
+    <div class="container-fluid">
+      <div class="row justify-content-center p-2">
+        <div class="col-md-10">
+          <div class="row p-2" id="active-note">
+            <!-- active note template start -->
+            <div class="col-md-4 p-5">
+              hello
+            </div>
+            <div class="col-md-7 d-flex justify-content-center py-5">
+              <textarea name="note-text" id="note-text" cols="55" rows="18"></textarea>
+            </div>
+            <div class="col-md-1 pt-5">
+              <div class="row justify-content-center">
+                <button type="button" class="delete-note-btn d-flex justify-content-center align-items-center">
+                  <div class="mdi mdi-trash-can delete-icon"></div>
+                </button>
+              </div>
+            </div>
+            <!-- active note template end -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="bg-dark text-light">
+    <div class="text-center no-select">
+      <p><small>Made with 💖 by CodeWorks</small></p>
+    </div>
+  </footer>
+
+  <!-- Off Canvas Form -->
+
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+      <h1 class="offcanvas-title" id="offcanvasExampleLabel">Add Note</h1>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body" id="note-form">
+    </div>
+  </div>
+
+  <!-- Off Canvas All Notes -->
+
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+      <h1 class="offcanvas-title" id="offcanvasRightLabel">All Notes</h1>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body all-notes" id="note-details">
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.10/dist/sweetalert2.all.min.js"
+    integrity="sha256-hw7v8jZF/rFEdx1ZHepT4D73AFTHLu/P9kEyrNesRyc=" crossorigin="anonymous"></script>
+  <script src="app/App.js" type="module"></script>
+</body>
+
+</html>
