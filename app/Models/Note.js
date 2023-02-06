@@ -15,7 +15,7 @@ export class Note {
 
   static NoteForm(){
     return /*html*/`
-    // <form onsubmit="app.notesController.handleFormSubmit()">
+    <form onsubmit="app.notesController.handleFormSubmit()">
         <div class="form-floating mb-3">
           <h3>Title</h3>
           <input type="text" class="form-control" name="title" required minlength="3" maxlength="15">

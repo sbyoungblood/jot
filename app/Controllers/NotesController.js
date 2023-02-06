@@ -18,6 +18,9 @@ function _drawAllNotes(){
 let template = ''
 appState.notes.forEach(n => template += n.NoteDetails)
 setHTML('note-details', template)
+let countTemplate = `All ${appState.notes.length} Notes`
+
+setText('offcanvasRightLabel', countTemplate)
 }
 
 
