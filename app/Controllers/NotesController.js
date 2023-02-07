@@ -7,7 +7,8 @@ import { setHTML, setText } from "../Utils/Writer.js";
 
 
 function _drawActiveNote(){
-setHTML('active-note', Note.ActiveNote())
+  // FIXME pull our active note out of the appstate, and use his template to draw to the HTML
+setHTML('active-note', appState.note.ActiveNote)
 }
 
 
@@ -30,11 +31,16 @@ export class NotesController {
   constructor(){
     console.log(appState.notes);
     _drawAllNotes()
+    appState.on('note', _drawActiveNote)
+    appState.on('notes',_drawAllNotes)
+
+    // TODO set up event listeners for note and notes in your appstate, or manually call when needed in their own methods (appstate.on)
   }
 
   setActiveNote(noteId) {
     try {
       notesService.setActiveNote(noteId)
+      _drawActiveNote()
     } catch (error) {
       Pop.error(error)
     }
@@ -43,6 +49,17 @@ export class NotesController {
 
   newNoteForm(){
     setHTML('note-form', Note.NoteForm())
+  }
+
+  updateNote() {
+    try {
+      let textArea = document.getElementById('note-text')
+      let updatedBody = textArea.value
+      notesService.updateNote(updatedBody)
+    } catch (error) {
+      console.error(error)
+      Pop.error(error.message)
+    }
   }
 
   handleFormSubmit() {
@@ -71,4 +88,7 @@ export class NotesController {
       Pop.error(error)
     }
   }
+
+  // FIXME we need an update method!!! please reference redacted and look at my updateCaseFile
+
 }
